@@ -1,0 +1,204 @@
+{
+  "formatVersion": 3,
+  "id": "root",
+  "ideas": {
+    "1": {
+      "title": "Worldflix",
+      "id": 1,
+      "attr": {
+        "position": [
+          -79,
+          -24,
+          1
+        ]
+      },
+      "ideas": {
+        "1": {
+          "title": "server.js",
+          "id": 4,
+          "ideas": {},
+          "attr": {
+            "position": [
+              175,
+              145,
+              9
+            ],
+            "parentConnector": {
+              "arrow": "both",
+              "color": "#000000",
+              "width": 4
+            }
+          }
+        },
+        "-1": {
+          "title": "upload.js",
+          "id": 6,
+          "attr": {
+            "style": {
+              "backgroundColor": "#99CC00"
+            },
+            "position": [
+              188,
+              -59,
+              2
+            ],
+            "parentConnector": {
+              "arrow": "both",
+              "color": "#000000",
+              "width": 4
+            }
+          }
+        },
+        "-11": {
+          "title": "/uploads",
+          "id": 8,
+          "attr": {
+            "position": [
+              148,
+              173,
+              10
+            ],
+            "style": {
+              "backgroundColor": "#800080",
+              "text": {
+                "color": "#FFFFFF"
+              }
+            },
+            "parentConnector": {
+              "arrow": "both",
+              "color": "#000000",
+              "width": 4
+            }
+          }
+        },
+        "0.5": {
+          "title": "database",
+          "id": 9,
+          "attr": {
+            "position": [
+              153,
+              -161,
+              11
+            ],
+            "style": {
+              "backgroundColor": "#FF0000",
+              "text": {
+                "color": "#FFFFFF"
+              }
+            },
+            "parentConnector": {
+              "arrow": "both",
+              "lineStyle": "solid",
+              "color": "#000000",
+              "width": 4
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Mongoose",
+              "id": 12,
+              "attr": {
+                "position": [
+                  132,
+                  17,
+                  1
+                ],
+                "style": {
+                  "backgroundColor": "#CCFFFF"
+                }
+              },
+              "ideas": {
+                "1": {
+                  "title": "Film",
+                  "id": 13,
+                  "attr": {
+                    "position": [
+                      79,
+                      104,
+                      1
+                    ],
+                    "style": {
+                      "text": {
+                        "color": "#FFFFFF"
+                      },
+                      "backgroundColor": "#000000"
+                    }
+                  },
+                  "ideas": {
+                    "1": {
+                      "title": "name",
+                      "id": 14
+                    },
+                    "2": {
+                      "title": "id",
+                      "id": 15
+                    },
+                    "3": {
+                      "title": "tags",
+                      "id": 16
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Worldflix",
+  "links": [
+    {
+      "ideaIdFrom": 4,
+      "ideaIdTo": 8,
+      "attr": {
+        "style": {
+          "color": "#FF0000",
+          "lineStyle": "solid",
+          "arrow": "from",
+          "label": "Read from films",
+          "width": 4
+        }
+      }
+    },
+    {
+      "ideaIdFrom": 6,
+      "ideaIdTo": 8,
+      "attr": {
+        "style": {
+          "color": "#00FF00",
+          "lineStyle": "solid",
+          "arrow": "to",
+          "width": 4,
+          "label": "Save films uploaded"
+        }
+      }
+    },
+    {
+      "ideaIdFrom": 6,
+      "ideaIdTo": 9,
+      "attr": {
+        "style": {
+          "color": "#FFFF00",
+          "lineStyle": "solid",
+          "arrow": "to",
+          "width": 4,
+          "label": "Save film info"
+        }
+      }
+    },
+    {
+      "ideaIdFrom": 4,
+      "ideaIdTo": 9,
+      "attr": {
+        "style": {
+          "color": "#0000FF",
+          "lineStyle": "solid",
+          "arrow": "from",
+          "width": 5,
+          "label": "Read film info"
+        }
+      }
+    }
+  ]
+}
