@@ -5,13 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Worldflix</title>
 </head>
 
 <body>
     <div class="container">
-        Hi
+        <h1>Films:</h1>
+        <div>
+            <% films.forEach(film =>{ %>
+                <div>
+                    <h2>Name:
+                        <%= film.name %>
+                    </h2>
+                    <h3>Tags:</h3>
+                    <br>
+                    <%= film.tags %>
+                </div>
+                <!-- I have to change this because google will delete all my films-->
+                <form action="/film/remove/<%= film.id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                <% }) %>
+
+        </div>
     </div>
 </body>
 

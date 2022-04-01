@@ -1,4 +1,5 @@
 const express = require('express')
+const Film = require('../models/film')
 
 const router = express.Router()
 
@@ -8,10 +9,8 @@ router.get("/", (req, res) => {
 })
 
 //showing specific film
-router.get("/show/:id", (req, res) => {
-    let film = {
-        id: req.params.id
-    }
+router.get("/show/:id", async(req, res) => {
+    let film = await Film.findById(req.params.id)
     res.render("film/show", {
         film: film
     })
@@ -23,8 +22,30 @@ router.get("/upload", (req, res) => {
 })
 
 //upload film request
-router.post("/", (req, res) => {
-    res.send("Uploading not implemented yet")
+router.post("/", async(req, res) => {
+    let tags = req.body.tags
+    let arr = tags.split("\n")
+    let farr = []
+    arr.forEach(tag => {
+        farr.push(tag.replace("\r", ""))
+    });
+    let newFilm = new Film({
+        name: req.body.name,
+        tags: farr
+    })
+    try {
+        newFilm = await newFilm.save()
+        res.render("film/show", {
+            film: newFilm
+        })
+    } catch (e) {
+        res.redirect("/")
+    }
+})
+
+router.post("/remove/:id", async(req, res) => {
+    await Film.findByIdAndDelete(req.params.id)
+    res.redirect("/")
 })
 
 module.exports = router
