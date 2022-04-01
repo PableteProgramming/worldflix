@@ -1,5 +1,6 @@
 const express = require('express')
 const Film = require('../models/film')
+const fs = require('fs')
 
 const router = express.Router()
 
@@ -35,6 +36,13 @@ router.post("/", async(req, res) => {
     })
     try {
         newFilm = await newFilm.save()
+        let p = "public/uploads";
+        let f = p + "/films";
+        let path = f + "/" + newFilm.id;
+        fs.mkdirSync(p)
+        fs.mkdirSync(f)
+        fs.mkdirSync(path)
+        fs.writeFileSync(path + "/empty.txt", "nothing")
         res.render("film/show", {
             film: newFilm
         })
