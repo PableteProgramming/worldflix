@@ -48,20 +48,14 @@ router.post("/", async(req, res) => {
             let p = "public/uploads"
             let f = p + "/films"
             let path = f + "/" + newFilm.id
-            try {
+            if (!fs.existsSync(p)) {
                 fs.mkdirSync(p)
-
-            } catch (e) {
-                console.log(e)
             }
-            try {
+            if (!fs.existsSync(f)) {
                 fs.mkdirSync(f)
-
-            } catch (e) {
-                console.log(e)
             }
+
             fs.mkdirSync(path)
-            fs.writeFileSync(path + "/empty.txt", "nothing")
             filmFile.mv(path + "/film.mp4", (err) => {
                 if (err) {
                     res.send("an error occured while uploading...")
