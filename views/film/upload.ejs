@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="/film" method="POST">
+    <form action="/film" enctype="multipart/form-data" method="POST">
         <div>
             <label for="name">Name</label>
             <input required type="text" name="name" id="name">
@@ -17,6 +17,14 @@
         <div>
             <label for="tags">Tags</label>
             <textarea name="tags" id="tags"></textarea>
+        </div>
+        <div>
+            <label for="file">Film</label>
+            <input type="file" name="film" id="film" required>
+        </div>
+        <div>
+            <label for="miniature">Miniature</label>
+            <input type="file" name="image" id="image" required>
         </div>
         <a href="/">Cancel</a>
         <button type="submit">Upload</button>
