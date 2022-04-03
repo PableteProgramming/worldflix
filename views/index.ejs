@@ -11,23 +11,29 @@
 
 <body>
     <div class="container">
-        <h1>Films:</h1>
-        <div>
+        <h1 class="mb-5 mt-5 center">Films:</h1>
+        <div class="films-grid mb-10">
             <% films.forEach(film =>{ %>
-                <div>
-                    <h2>Name:
+                <div class="film-cell">
+                    <h2 class="mb-4">Name:
                         <%= film.name %>
                     </h2>
-                    <h3>Tags:</h3>
-                    <br>
-                    <%= film.tags %>
+                    <a href="/film/show/<%= film.id %>"><img src="../films/<%= film.id %>/img.png" alt="image"></a>
+                    <div class="mb-5">
+                        <h3>Tags:</h3>
+                        <%= film.tags %>
+                    </div>
+                    <!-- I have to change this because google will delete all my films-->
+                    <form action="/film/remove/<%= film.id %>" method="POST">
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
                 </div>
-                <!-- I have to change this because google will delete all my films-->
-                <form action="/film/remove/<%= film.id %>" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
+
                 <% }) %>
 
+        </div>
+        <div class="center">
+            <a class="btn" href="/film/upload">Upload film</a>
         </div>
     </div>
 </body>

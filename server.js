@@ -12,6 +12,7 @@ mongoose.connect("mongodb://localhost/worldflix")
 
 app.set('view engine', 'ejs')
 app.use(express.static("public/res"))
+app.use(express.static("public/uploads"))
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
 app.use("/film", filmRouter)
