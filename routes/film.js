@@ -14,10 +14,20 @@ router.get("/", (req, res) => {
     res.redirect("/")
 })
 
+function CheckTags(film) {
+    tags = true
+    if (film.tags.length <= 1) {
+        if (film.tags[0] === '') {
+            tags = false
+        }
+    }
+    return tags
+}
+
 //showing specific film
 router.get("/show/:id", async(req, res) => {
     let film = await Film.findById(req.params.id)
-    tags = true
+    tags = CheckTags(film)
     res.render("film/show", {
         film: film,
         tags: tags
@@ -68,7 +78,7 @@ router.post("/", async(req, res) => {
                     res.send("an error occured while uploading...")
                 }
             })
-            tags = true
+            tags = CheckTags(newFilm)
             res.render("film/show", {
                 film: newFilm,
                 tags: tags
