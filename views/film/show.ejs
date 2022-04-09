@@ -10,13 +10,34 @@
 </head>
 
 <body>
-    <div class="container">
-        Showing film with id
-        <%= film.id %>
-            <br> Name:
-            <%= film.name %>
-                <br> Tags:
-                <%= film.tags %>
+    <div class="container pb-15 pt-10">
+        <div class="mb-10">
+            <div>
+                <p>
+                    Name:
+                    <br>
+                    <%= film.name %>
+                </p>
+            </div>
+            <br>
+            <% if(tags===true){ %>
+                <div>
+                    <p>
+                        Tags:
+                        <br>
+                        <%= film.tags %>
+                    </p>
+                </div>
+                <% } %>
+                    <div>
+                        <p>
+                            Video:
+                            <br>
+                        </p>
+                        <video class="video" controls preload="metadata"><source src="../../films/<%= film.id %>/film.mp4" type="video/mp4"/></video>
+                    </div>
+        </div>
+        <a href="/" class="btn">Back home</a>
     </div>
 </body>
 

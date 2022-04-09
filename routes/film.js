@@ -17,8 +17,10 @@ router.get("/", (req, res) => {
 //showing specific film
 router.get("/show/:id", async(req, res) => {
     let film = await Film.findById(req.params.id)
+    tags = true
     res.render("film/show", {
-        film: film
+        film: film,
+        tags: tags
     })
 })
 
@@ -66,8 +68,10 @@ router.post("/", async(req, res) => {
                     res.send("an error occured while uploading...")
                 }
             })
+            tags = true
             res.render("film/show", {
-                film: newFilm
+                film: newFilm,
+                tags: tags
             })
         } catch (e) {
             console.log(e)
