@@ -16,10 +16,12 @@ router.get("/", (req, res) => {
 
 function CheckTags(film) {
     tags = true
-    if (film.tags.length <= 1) {
+    if (film.tags.length == 1) {
         if (film.tags[0] === '') {
             tags = false
         }
+    } else if (film.tags.length < 1) {
+        tags = false
     }
     return tags
 }

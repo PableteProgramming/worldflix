@@ -1,0 +1,4 @@
+// todo for the project
+
+- fix delete button pos when no tag 
+- draw in upload.ejs

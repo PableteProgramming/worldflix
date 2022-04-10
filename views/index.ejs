@@ -19,14 +19,17 @@
                         <%= film.name %>
                     </h2>
                     <a href="/film/show/<%= film.id %>"><img src="../films/<%= film.id %>/img.png" alt="image"></a>
-                    <div class="mb-5">
-                        <h3>Tags:</h3>
-                        <%= film.tags %>
-                    </div>
-                    <!-- I have to change this because google will delete all my films-->
-                    <form action="/film/remove/<%= film.id %>" method="POST">
-                        <button type="submit" class="btn">Delete</button>
-                    </form>
+                    <% if(film.tags.length >= 1){ %>
+                        <%     if(film.tags[0]!== ""){ %>
+                            <div class="mb-5">
+                                <h3>Tags:</h3>
+                                <%= film.tags %>
+                            </div>
+                            <% } %>
+                                <% } %>
+                                    <form action="/film/remove/<%= film.id %>" method="POST" class="del-form">
+                                        <button type="submit" class="btn">Delete</button>
+                                    </form>
                 </div>
 
                 <% }) %>
